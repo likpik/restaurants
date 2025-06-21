@@ -46,10 +46,25 @@ npm install
 
 4. Set up the database
 
+Connect with the database in MongoDB using your MONGODB_URI
+
 This script populates the database with initial restaurant data.
 ```bash
 node src/scripts/seedDatabase.js
 ```
+
+Check if 3 indexes were created for the reviews:
+ * id
+ * user_1_restaurant_1
+ * comment_text
+
+ If comment_text indexes were not created -> add the indexes yourself.
+```
+ create index
+ index field: comment
+ type: text
+```
+ This is crucial for the comment search functionality.
 
 5. Run the app
 * backend:
